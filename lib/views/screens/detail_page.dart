@@ -1,4 +1,5 @@
 import 'package:async_wallpaper/async_wallpaper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
@@ -9,16 +10,23 @@ class DetailPage extends StatelessWidget {
     Map data = ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(
-            data['largeImageURL'],
-            fit: BoxFit.scaleDown,
-            height: double.infinity,
-          ),
-          Image.network(
-            "https://o.remove.bg/downloads/02c2150b-ba72-43db-bef8-2feb40a0675f/Untitled-removebg-preview.png",
-            fit: BoxFit.fill,
+          Center(
+            child: Container(
+              margin: EdgeInsets.all(20),
+              height: 550,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(
+                    data['largeImageURL'],
+                  ),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
           ),
         ],
       ),
@@ -32,7 +40,7 @@ class DetailPage extends StatelessWidget {
             errorToastDetails: ToastDetails.error(),
           );
         },
-        child: const Icon(Icons.wallpaper),
+        child: const Icon(CupertinoIcons.airplane),
       ),
     );
   }

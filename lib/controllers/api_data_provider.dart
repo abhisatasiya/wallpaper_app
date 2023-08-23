@@ -1,6 +1,6 @@
+import 'package:abhi_wallpaper_app/controllers/helpers/api_helper.dart';
+import 'package:abhi_wallpaper_app/models/post_model.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:wallpaper_app/controllers/helpers/api_helper.dart';
-import 'package:wallpaper_app/models/post_model.dart';
 
 class ApiController extends ChangeNotifier {
   Posts? post;
@@ -15,7 +15,7 @@ class ApiController extends ChangeNotifier {
     notifyListeners();
   }
 
-  search({String val = "nature"}) async {
+  search({String val = ""}) async {
     data = await ApiHelper.apiHelper.getWallpapers(query: val) ?? [];
     notifyListeners();
     return 0;

@@ -1,7 +1,7 @@
+import 'package:abhi_wallpaper_app/controllers/api_data_provider.dart';
+import 'package:abhi_wallpaper_app/views/screens/detail_page.dart';
+import 'package:abhi_wallpaper_app/views/screens/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:wallpaper_app/controllers/api_data_provider.dart';
-import 'package:wallpaper_app/views/screens/detail_page.dart';
-import 'package:wallpaper_app/views/screens/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {

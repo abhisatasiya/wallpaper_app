@@ -1,7 +1,6 @@
 import 'dart:convert';
-
+import 'package:abhi_wallpaper_app/models/post_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:wallpaper_app/models/post_model.dart';
 
 class ApiHelper {
   ApiHelper._();
@@ -9,7 +8,7 @@ class ApiHelper {
 
   String api = "https://jsonplaceholder.typicode.com/posts";
 
-  Future<List?> getWallpapers({String query = "nature"}) async {
+  Future<List?> getWallpapers({String query = "0"}) async {
     String wallpaperApi =
         "https://pixabay.com/api/?key=38981358-ea42b3ab41381b90f98b30d82&q=$query&orientation=vertical&safesearch=true&category=wallpaper";
     http.Response response =

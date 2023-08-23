@@ -1,9 +1,9 @@
+import 'package:abhi_wallpaper_app/controllers/api_data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallpaper_app/controllers/api_data_provider.dart';
-import 'package:wallpaper_app/controllers/helpers/api_helper.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:wallpaper_app/models/post_model.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:searchbar_animation/searchbar_animation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,9 +12,23 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("API Page"),
+        backgroundColor: Colors.white,
         centerTitle: true,
+        title: AnimatedTextKit(
+          animatedTexts: [
+            RotateAnimatedText(
+              'wallpaper app',
+              textStyle: const TextStyle(
+                fontSize: 32.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+          repeatForever: true,
+          displayFullTextOnTap: true,
+        ),
       ),
+      backgroundColor: Colors.white,
       body: Consumer<ApiController>(builder: (context, pro, _) {
         List data = pro.data;
         return Center(
@@ -65,12 +79,6 @@ class HomePage extends StatelessWidget {
           ),
         );
       }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<ApiController>(context, listen: false).getData();
-        },
-        child: const Icon(Icons.download),
-      ),
     );
   }
 }
